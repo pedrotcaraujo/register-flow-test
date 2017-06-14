@@ -15,7 +15,7 @@
 		$typing.show();
 		setTimeout(function() {
 			$(messages.get(index)).fadeIn();
-			$('.messages').scrollTop($(messages.get(index)));
+			$('.messages').scrollTop(500);
 			$typing.hide();
 			if(messages.get(++index)) {
 				typemessage(messages, index)
