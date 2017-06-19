@@ -74,6 +74,44 @@ header {
     display: none;
 }
 
+.support-message p, .user-message p {
+    position: relative;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #ccc;
+}
+
+.user-message {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.support-message p .text {
+    display: none;
+}
+
+.support-message p:before {
+    content: '';
+    display: none;
+    border: 3px solid #999;
+    -webkit-border-radius: 30px;
+    height: 18px;
+    width: 18px;
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite; 
+    opacity: 0.0
+}
+
+.support-message p.loading:before {
+    display: block
+}
+
+@-webkit-keyframes pulsate {
+    0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+    50% {opacity: 1.0;}
+    100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+}
+
 /* TYPING */
 @keyframes blink {
     /**

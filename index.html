@@ -18,60 +18,78 @@
 <div class="messages-container">
     <div class="messages">
         <div class="support-message" id="greetings">
-            <p>Estamos felizes pelo seu interesse na "Moderninha Pro" :)</p>
-            <p>Precisaremos de algumas informações suas para começar, será rápido, OK</p>
+            <p><span class="text">Estamos felizes pelo seu interesse na "Moderninha Pro" :)</span></p>
+            <p><span class="text">Precisaremos de algumas informações suas para começar, será rápido, OK</span></p>
         </div>
         <div class="user-message">
             <p data-bind='userName'></p>
         </div>
         <div class="support-message" id="documentations">
-            <p>Legal <span data-bind='userName'></span>, agora precisamos de um documento para faturar o pedido, você pode comprar utilizando seu CPF ou CNPJ</p>
+            <p><span class="text">Legal <span data-bind='userName'></span>, agora precisamos de um documento para faturar o pedido, você pode comprar utilizando seu CPF ou CNPJ</span></p>
         </div>
         <div class="user-message">
             <p data-bind='document'></p>
         </div>
         <div class="support-message" id="address-cep">
-            <p>Certo, agora me passa o endereço de onde entregaremos a sua [Moderninha Pro]</p>
+            <p><span class="text">Certo, agora me passa o endereço de onde entregaremos a sua [Moderninha Pro]</span></p>
         </div>
-        <div class="user-message" data-bind='cep'></div>
+        <div class="user-message">
+            <p data-bind='cep'></p>
+        </div>
         <div class="support-message" id="address-cep-confirm">
-            <p>Fica na <span>Av. Brig. Faria Lima - Pinheiros, São Paulo - SP, isso mesmo?</span></p>
+            <p><span class="text">Fica na <span>Av. Brig. Faria Lima - Pinheiros, São Paulo - SP, isso mesmo?</span></span></p>
         </div>
-        <div class="user-message" data-bind='cepConfirm'></div>
+        <div class="user-message">
+            <p data-bind='cepConfirm'></p>
+        </div>
         <div class="support-message" id="address-additional">
-            <p>E em qual número iremos entregar? Ah, se tiver complemento (ex.: 2º And, Apto. 43) inclui também, combinado!</p>
+            <p><span class="text">E em qual número iremos entregar? Ah, se tiver complemento (ex.: 2º And, Apto. 43) inclui também, combinado!</span></p>
         </div>
-        <div class="user-message" data-bind='address'></div>
+        <div class="user-message">
+            <p data-bind='address'></p>
+        </div>
         <div class="support-message" id="email">
-            <p>Agora um e-mail para enviarmos os dados do seu pedido.</p>
-            <p>Ah, se você já tem conta no PagSeguro ou UOL use o mesmo e-mail, blz.</p>
+            <p><span class="text">Agora um e-mail para enviarmos os dados do seu pedido.</span></p>
+            <p><span class="text">Ah, se você já tem conta no PagSeguro ou UOL use o mesmo e-mail, blz.</span></p>
         </div>
-        <div class="user-message" data-bind='email'></div>
+        <div class="user-message">
+            <p data-bind='email'></p>
+        </div>
         <div class="support-message" id="email-confirm">
-            <p><span data-bind="userName"></span>, confirma se o e-mail digitado está certo: <span>emaildocliente@gmail.com</span></p>
+            <p><span class="text"><span data-bind="userName"></span>, confirma se o e-mail digitado está certo: <span>emaildocliente@gmail.com</span></span></p>
         </div>
-        <div class="user-message" data-bind='emailConfirm'></div>
+        <div class="user-message">
+            <p data-bind='emailConfirm'></p>
+        </div>
         <div class="support-message" id="phone">
-            <p>Agora precisamos apenas de um telefone para te informar sobre a sua entrega.</p>
-            <p>Ah, fique tranquilo, também odiamos SPAM.</p>
+            <p><span class="text">Agora precisamos apenas de um telefone para te informar sobre a sua entrega.</span></p>
+            <p><span class="text">Ah, fique tranquilo, também odiamos SPAM.</span></p>
         </div>
-        <div class="user-message" data-bind='phone'></div>
+        <div class="user-message">
+            <p data-bind='phone'></p>
+        </div>
         <div class="support-message" id="payment-method">
-            <p>Como você vai pagar <span data-bind="userName"></span>?</p>
-            <p>Ahh, no cartão de crédito você pode parcelar em ate 12x, sem juros, e a liberação do pedido é mais rápida.</p>
+            <p><span class="text">Como você vai pagar <span data-bind="userName"></span>?</span></p>
+            <p><span class="text">Ahh, no cartão de crédito você pode parcelar em ate 12x, sem juros, e a liberação do pedido é mais rápida.</span></p>
         </div>
-        <div class="user-message" data-bind='paymentMethod'></div>
+        <div class="user-message">
+            <p data-bind='paymentMethod'></p>
+        </div>
         <div class="support-message" id="payment-register">
-            <p>Certo, você escolheu cartão de crédito, preencha com os dados do cartão que você deseja efetuar o pagamento. Ah, somos super seguros, até no nome, fique tranquilo :)</p>
+            <p><span class="text">Certo, você escolheu cartão de crédito, preencha com os dados do cartão que você deseja efetuar o pagamento. Ah, somos super seguros, até no nome, fique tranquilo :)</span></p>
+        </div>        
+        <div class="user-message">
+            <p data-bind='creditCard'></p>
         </div>
-        <div class="user-message" data-bind='creditCard'></div>
         <div class="support-message" id="pick-address">
-            <p>Falta pouco, agora confirme o endereço da fatura do cartão para finalizarmos!</p>
+            <p><span class="text">Falta pouco, agora confirme o endereço da fatura do cartão para finalizarmos!</span></p>
         </div>
-        <div class="user-message" data-bind='deliveryAddress'></div>
+        <div class="user-message">
+            <p data-bind='deliveryAddress'></p>
+        </div>
         <div class="support-message" id="done">
-            <p>Parabéns <span data-bind="userName">, ficamos felizes por ter comprado sua Moderninha Pro!</p>
-            <p>Agora você precisa conferir o e-mail que enviamos para você, seguir as instruções e ativar o seu equipamento, quando ele chegar, blz :)</p>
+            <p><span class="text">Parabéns <span data-bind="userName">, ficamos felizes por ter comprado sua Moderninha Pro!</span></p>
+            <p><span class="text">Agora você precisa conferir o e-mail que enviamos para você, seguir as instruções e ativar o seu equipamento, quando ele chegar, blz :)</span></p>
         </div>
     </div>
 </div>
@@ -96,6 +114,86 @@
         </form>
     </div>
     <div id="address-cep-form" class="text-type-field">
+        <form class="form-group">
+            <div class="field-group">
+                <label for="cep">Digite o CEP</label>
+                <input type="text" class="form-control" id="cep" placeholder="Digite o CEP da entrega">
+            </div>
+            <button class="btn btn-secundary">Não sei meu CEP</button>
+            <button type="submit" class="btn btn-primary">Continuar</button>
+        </form>
+    </div>
+    <div id="address-cep-confirm-form" class="text-type-field">
+        <form class="form-group">
+            <div class="field-group">
+                <label for="cep">Digite o CEP</label>
+                <input type="text" class="form-control" id="cep" placeholder="Digite o CEP da entrega">
+            </div>
+            <button class="btn btn-secundary">Não sei meu CEP</button>
+            <button type="submit" class="btn btn-primary">Continuar</button>
+        </form>
+    </div>
+    <div id="address-additional-form" class="text-type-field">
+        <form class="form-group">
+            <div class="field-group">
+                <label for="cep">Digite o CEP</label>
+                <input type="text" class="form-control" id="cep" placeholder="Digite o CEP da entrega">
+            </div>
+            <button class="btn btn-secundary">Não sei meu CEP</button>
+            <button type="submit" class="btn btn-primary">Continuar</button>
+        </form>
+    </div>
+    <div id="email-form" class="text-type-field">
+        <form class="form-group">
+            <div class="field-group">
+                <label for="cep">Digite o CEP</label>
+                <input type="text" class="form-control" id="cep" placeholder="Digite o CEP da entrega">
+            </div>
+            <button class="btn btn-secundary">Não sei meu CEP</button>
+            <button type="submit" class="btn btn-primary">Continuar</button>
+        </form>
+    </div>
+    <div id="email-confirm-form" class="text-type-field">
+        <form class="form-group">
+            <div class="field-group">
+                <label for="cep">Digite o CEP</label>
+                <input type="text" class="form-control" id="cep" placeholder="Digite o CEP da entrega">
+            </div>
+            <button class="btn btn-secundary">Não sei meu CEP</button>
+            <button type="submit" class="btn btn-primary">Continuar</button>
+        </form>
+    </div>
+    <div id="phone-form" class="text-type-field">
+        <form class="form-group">
+            <div class="field-group">
+                <label for="cep">Digite o CEP</label>
+                <input type="text" class="form-control" id="cep" placeholder="Digite o CEP da entrega">
+            </div>
+            <button class="btn btn-secundary">Não sei meu CEP</button>
+            <button type="submit" class="btn btn-primary">Continuar</button>
+        </form>
+    </div>
+    <div id="payment-method-form" class="text-type-field">
+        <form class="form-group">
+            <div class="field-group">
+                <label for="cep">Digite o CEP</label>
+                <input type="text" class="form-control" id="cep" placeholder="Digite o CEP da entrega">
+            </div>
+            <button class="btn btn-secundary">Não sei meu CEP</button>
+            <button type="submit" class="btn btn-primary">Continuar</button>
+        </form>
+    </div>
+    <div id="payment-register-form" class="text-type-field">
+        <form class="form-group">
+            <div class="field-group">
+                <label for="cep">Digite o CEP</label>
+                <input type="text" class="form-control" id="cep" placeholder="Digite o CEP da entrega">
+            </div>
+            <button class="btn btn-secundary">Não sei meu CEP</button>
+            <button type="submit" class="btn btn-primary">Continuar</button>
+        </form>
+    </div>
+    <div id="pick-address-form" class="text-type-field">
         <form class="form-group">
             <div class="field-group">
                 <label for="cep">Digite o CEP</label>
