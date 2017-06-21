@@ -8,9 +8,8 @@
 		});
 		setTimeout(function() {
 			$(messages.get(index)).removeClass('loading');
-			$(messages.get(index)).find('.text').fadeIn('slow', function() {
-				$('.messages').scrollTop($('.messages')[0].scrollHeight);
-			});
+			$(messages.get(index)).find('.text').show();
+			$('.messages').scrollTop($('.messages')[0].scrollHeight);
 			if(messages.get(++index)) {
 				typemessage(messages, index)
 			}
@@ -21,6 +20,8 @@
 		$('.text-type-field').hide();
 		typemessage($(el).find('p'), 0)
 		$(el +'-form').show();
+		$(el +'-form').find('input').first().focus();
+		$('.messages').scrollTop($('.messages')[0].scrollHeight);
 	}
 
 	function bindScopes(key) {
@@ -65,8 +66,8 @@
 	$(document).on('submit', '#address-cep-confirm-form form', function(e) {
 		e.preventDefault();
 		$this = $(this)
-		var value = $this.find('input').val()
-		scope['cepConfirm'] = value;
+		// var value = $this.find('input').val()
+		scope['cepConfirm'] = 'Sim, está correto';
 		$('#address-cep-confirm').next().find('p').fadeIn()
 		bindScopes('cepConfirm')
 		nextStep('#address-additional')
@@ -75,8 +76,9 @@
 	$(document).on('submit', '#address-additional-form form', function(e) {
 		e.preventDefault();
 		$this = $(this)
-		var value = $this.find('input').val()
-		scope['address'] = value;
+		var number = $this.find('input#number').val()
+		var complement = $this.find('input#complement').val()
+		scope['address'] = 'Número '+number + (complement ? ', complemento '+ complement : '');
 		$('#address-additional').next().find('p').fadeIn()
 		bindScopes('address')
 		nextStep('#email')
@@ -95,8 +97,8 @@
 	$(document).on('submit', '#email-confirm-form form', function(e) {
 		e.preventDefault();
 		$this = $(this)
-		var value = $this.find('input').val()
-		scope['emailConfirm'] = value;
+		// var value = $this.find('input').val()
+		scope['emailConfirm'] = 'Sim, está correto';
 		$('#email-confirm').next().find('p').fadeIn()
 		bindScopes('emailConfirm')
 		nextStep('#phone')
@@ -112,33 +114,49 @@
 		nextStep('#payment-method')
 	})
 
-	$(document).on('submit', '#payment-method-form form', function(e) {
+	$(document).on('click', '#payment-method-form a', function(e) {
 		e.preventDefault();
 		$this = $(this)
-		var value = $this.find('input').val()
+		var value = $this.attr('data-method')
 		scope['paymentMethod'] = value;
 		$('#payment-method').next().find('p').fadeIn()
 		bindScopes('paymentMethod')
+		nextStep('#payment-installment')
+	})
+
+	$(document).on('submit', '#payment-installment-form form', function(e) {
+		e.preventDefault();
+		$this = $(this)
+		var select = $this.find('select').val()
+		scope['paymentInstallment'] = 'Quero pagar em '+ select +'x';
+		$('#payment-installment').next().find('p').fadeIn()
+		bindScopes('paymentInstallment')
 		nextStep('#payment-register')
 	})
 
 	$(document).on('submit', '#payment-register-form form', function(e) {
 		e.preventDefault();
 		$this = $(this)
-		var value = $this.find('input').val()
-		scope['creditCard'] = value;
+		var cardNumber = $this.find('input#cardNumber').val()
+		var cardValidate = $this.find('input#cardValidate').val()
+		var cvv = $this.find('input#cvv').val()
+		var cardName = $this.find('input#cardName').val()
+		var cardCPF = $this.find('input#cardCPF').val()
+		var cardBirth = $this.find('input#cardBirth').val()
+		var select = $this.find('select').val()
+		scope['creditCard'] = 'Nome: '+ cardName + ' Numero: ' + cardNumber;
 		$('#payment-register').next().find('p').fadeIn()
 		bindScopes('creditCard')
 		nextStep('#pick-address')
 	})
 
-	$(document).on('submit', '#pick-address-form form', function(e) {
-		e.preventDefault();
-		$this = $(this)
-		var value = $this.find('input').val()
-		scope['deliveryAddress'] = value;
-		$('#pick-address').next().find('p').fadeIn()
-		bindScopes('deliveryAddress')
-		nextStep('#done')
-	})
+	// $(document).on('submit', '#pick-address-form form', function(e) {
+	// 	e.preventDefault();
+	// 	$this = $(this)
+	// 	var value = $this.find('input:checked').val()
+	// 	scope['paymentAddress'] = value;
+	// 	$('#pick-address').next().find('p').fadeIn()
+	// 	bindScopes('paymentAddress')
+	// 	nextStep('#done')
+	// })
 })()

@@ -12,7 +12,9 @@
 <header>
     <img src="assets/img/ps-logo.png" alt="">
     <div class="order">
-        <span class="order-title">Seu pedido</span>
+        <label class="order-title" for="orderToggle">Seu pedido</labe>
+        <input id="orderToggle" type="checkbox"/>
+        <span class="order-detail"><img src="assets/img/pedido.png" alt=""></span>
     </div>
 </header>
 <div class="messages-container">
@@ -56,7 +58,7 @@
             <p data-bind='email'></p>
         </div>
         <div class="support-message" id="email-confirm">
-            <p><span class="text"><span data-bind="userName"></span>, confirma se o e-mail digitado está certo: <span>emaildocliente@gmail.com</span></span></p>
+            <p><span class="text"><span data-bind="userName"></span>, confirma se o e-mail digitado está certo: <span data-bind="email"></span></span></p>
         </div>
         <div class="user-message">
             <p data-bind='emailConfirm'></p>
@@ -75,8 +77,14 @@
         <div class="user-message">
             <p data-bind='paymentMethod'></p>
         </div>
+        <div class="support-message" id="payment-installment">
+            <p><span class="text">Certo, você escolheu cartão de crédito, em quantas vezes você quer pagar?</span></span></p>
+        </div>
+        <div class="user-message">
+            <p data-bind='paymentInstallment'></p>
+        </div>
         <div class="support-message" id="payment-register">
-            <p><span class="text">Certo, você escolheu cartão de crédito, preencha com os dados do cartão que você deseja efetuar o pagamento. Ah, somos super seguros, até no nome, fique tranquilo :)</span></p>
+            <p><span class="text">Preencha com os dados do cartão que você deseja efetuar o pagamento. Ah, somos super seguros, até no nome, fique tranquilo :)</span></p>
         </div>        
         <div class="user-message">
             <p data-bind='creditCard'></p>
@@ -125,82 +133,115 @@
     </div>
     <div id="address-cep-confirm-form" class="text-type-field">
         <form class="form-group">
-            <div class="field-group">
-                <label for="cep">Digite o CEP</label>
-                <input type="text" class="form-control" id="cep" placeholder="Digite o CEP da entrega">
-            </div>
-            <button class="btn btn-secundary">Não sei meu CEP</button>
-            <button type="submit" class="btn btn-primary">Continuar</button>
+            <button class="btn btn-secundary">Ops, preciso corrigir</button>
+            <button type="submit" class="btn btn-primary">Sim, está correto</button>
         </form>
     </div>
     <div id="address-additional-form" class="text-type-field">
         <form class="form-group">
             <div class="field-group">
-                <label for="cep">Digite o CEP</label>
-                <input type="text" class="form-control" id="cep" placeholder="Digite o CEP da entrega">
+                <label for="number">Digite o número</label>
+                <input type="text" class="form-control" id="number" placeholder="Digite o número">
             </div>
-            <button class="btn btn-secundary">Não sei meu CEP</button>
+            <div class="field-group">
+                <label for="complement">Complemento (opcional)</label>
+                <input type="text" class="form-control" id="complement" placeholder="Ex: apto 43, 2º And">
+            </div>
             <button type="submit" class="btn btn-primary">Continuar</button>
         </form>
     </div>
     <div id="email-form" class="text-type-field">
         <form class="form-group">
             <div class="field-group">
-                <label for="cep">Digite o CEP</label>
-                <input type="text" class="form-control" id="cep" placeholder="Digite o CEP da entrega">
+                <label for="email">Digite o seu e-mail</label>
+                <input type="text" class="form-control" id="email" placeholder="Digite o seu e-mail">
             </div>
-            <button class="btn btn-secundary">Não sei meu CEP</button>
             <button type="submit" class="btn btn-primary">Continuar</button>
         </form>
     </div>
     <div id="email-confirm-form" class="text-type-field">
         <form class="form-group">
-            <div class="field-group">
-                <label for="cep">Digite o CEP</label>
-                <input type="text" class="form-control" id="cep" placeholder="Digite o CEP da entrega">
-            </div>
-            <button class="btn btn-secundary">Não sei meu CEP</button>
-            <button type="submit" class="btn btn-primary">Continuar</button>
+            <button class="btn btn-secundary">Preciso corrigir</button>
+            <button type="submit" class="btn btn-primary">Sim, está correto</button>
         </form>
     </div>
     <div id="phone-form" class="text-type-field">
         <form class="form-group">
             <div class="field-group">
-                <label for="cep">Digite o CEP</label>
-                <input type="text" class="form-control" id="cep" placeholder="Digite o CEP da entrega">
+                <label for="phone">Digite o celular</label>
+                <input type="text" class="form-control" id="phone" placeholder="DDD + Nº">
             </div>
-            <button class="btn btn-secundary">Não sei meu CEP</button>
             <button type="submit" class="btn btn-primary">Continuar</button>
         </form>
     </div>
     <div id="payment-method-form" class="text-type-field">
+        <ul class="list">
+            <li class="list-item"><a data-method='Boleto' href="#" class="payment-method"><img src="assets/img/boleto.png"/></a></li>
+            <li class="list-item"><a data-method='Cartão de crédito' href="#" class="payment-method"><img src="assets/img/creditcard.png"/></a></li>
+        </ul>
+    </div>
+    <div id="payment-installment-form" class="text-type-field">
         <form class="form-group">
             <div class="field-group">
-                <label for="cep">Digite o CEP</label>
-                <input type="text" class="form-control" id="cep" placeholder="Digite o CEP da entrega">
+                <label for="installmentNum">Número de parcelas</label>
+                <select class="form-control">
+                    <option value="1">1x</option>
+                    <option value="2">2x</option>
+                    <option value="3">3x</option>
+                    <option value="4">4x</option>
+                    <option value="5">5x</option>
+                    <option value="6">6x</option>
+                    <option value="7">7x</option>
+                    <option value="8">8x</option>
+                    <option value="9">9x</option>
+                    <option value="10">10x</option>
+                    <option value="11">11x</option>
+                    <option value="12">12x</option>
+                </select>
             </div>
-            <button class="btn btn-secundary">Não sei meu CEP</button>
             <button type="submit" class="btn btn-primary">Continuar</button>
         </form>
     </div>
     <div id="payment-register-form" class="text-type-field">
-        <form class="form-group">
+        <form class="form-group multi">
             <div class="field-group">
-                <label for="cep">Digite o CEP</label>
-                <input type="text" class="form-control" id="cep" placeholder="Digite o CEP da entrega">
+                <label for="cardNumber">Número do cartão</label>
+                <input type="text" class="form-control" id="cardNumber" placeholder="Número do cartão">
             </div>
-            <button class="btn btn-secundary">Não sei meu CEP</button>
+            <div class="field-group">
+                <label for="cardName">Nome impresso no cartão</label>
+                <input type="text" class="form-control" id="cardName" placeholder="Nome impresso no cartão">
+            </div>
+            <div class="field-group">
+                <label for="cardValidade">Validade (mês/ano)</label>
+                <input type="text" class="form-control" id="cardValidade" placeholder="Ex: 12/22">
+            </div>
+            <div class="field-group">
+                <label for="cvv">Código de segurança</label>
+                <input type="text" class="form-control" id="cvv" placeholder="Código de segurança">
+            </div>
             <button type="submit" class="btn btn-primary">Continuar</button>
         </form>
     </div>
     <div id="pick-address-form" class="text-type-field">
-        <form class="form-group">
-            <div class="field-group">
-                <label for="cep">Digite o CEP</label>
-                <input type="text" class="form-control" id="cep" placeholder="Digite o CEP da entrega">
+        <form class="form-radio-group">
+            <div class="radio-group">
+                <input type="radio" id="sameAddress" name="paymentAddress" value="Igual ao endereço da entrega">
+                <label for="sameAddress">
+                    <span class="check"></span>
+                    Igual ao endereço da entrega <span class="same-address">Av. Brig. Faria Lima - Pinheiros, São Paulo - SP</span>
+                </label>
             </div>
-            <button class="btn btn-secundary">Não sei meu CEP</button>
-            <button type="submit" class="btn btn-primary">Continuar</button>
+            <div class="radio-group">
+                <input type="radio" id="otherAddress" name="paymentAddress" value=" Outro endereço">
+                <label for="otherAddress">
+                    <span class="check"></span>
+                    Outro endereço
+                </label>                
+            </div>
+            <div class="button-group">
+                <a href="comprovante.html" class="btn btn-primary">Confirmar pagamento</a>
+            </div>
         </form>
     </div>
 </div>
