@@ -65,7 +65,6 @@ header {
 
 .fields-container .field-group {
     width: 100%;
-    margin-right: 30px;
     margin: 5px 30px 5px 0;
 }
 
@@ -91,6 +90,7 @@ header {
 }
 
 .fields-container .button-group {
+    width: 100%;
     display: flex;
     justify-content: flex-end;
 }
@@ -116,6 +116,11 @@ header {
 
 .fields-container .form-group.multi .field-group {
     flex-basis: 30%;
+    margin: 5px;
+}
+
+.fields-container .form-group.multi .button-group {
+    margin: 5px;
 }
 
 .fields-container button {
